@@ -199,129 +199,33 @@ document.addEventListener('DOMContentLoaded', function() {
     // Music Player Functionality
     function initMusicPlayer() {
         const musicToggle = document.getElementById('musicToggle');
-        const musicPlayer = document.querySelector('.music-player');
-        const playPauseBtn = document.getElementById('playPause');
-        const volumeBtn = document.getElementById('volumeBtn');
-        const volumeSlider = document.getElementById('volumeSlider');
         const audio = document.getElementById('backgroundMusic');
-        
-        if (!musicToggle || !musicPlayer || !playPauseBtn || !audio) return;
-        
-        // Load saved volume preference
+        if (!musicToggle || !audio) return;
+
+        // Set default volume (no slider)
         const savedVolume = localStorage.getItem('musicVolume');
-        if (savedVolume !== null) {
-            volumeSlider.value = savedVolume;
-            audio.volume = savedVolume / 100;
-        } else {
-            audio.volume = 0.5;
+        audio.volume = savedVolume !== null ? (Number(savedVolume) / 100) : 0.6;
+
+        function setPlayingUI(isPlaying) {
+            const icon = musicToggle.querySelector('i');
+            if (!icon) return;
+            icon.className = isPlaying ? 'fas fa-pause' : 'fas fa-music';
+            musicToggle.classList.toggle('active', isPlaying);
         }
-        
-        // Update volume icon based on volume level
-        function updateVolumeIcon() {
-            const volume = audio.volume;
-            const icon = volumeBtn.querySelector('i');
-            if (volume === 0) {
-                icon.className = 'fas fa-volume-mute';
-            } else if (volume < 0.5) {
-                icon.className = 'fas fa-volume-down';
-            } else {
-                icon.className = 'fas fa-volume-up';
-            }
-        }
-        
-        updateVolumeIcon();
-        
-        // Helper function to update play/pause icon
-        function updatePlayPauseIcon(isPlaying) {
-            const playIcon = playPauseBtn.querySelector('.fa-play');
-            const pauseIcon = playPauseBtn.querySelector('.fa-pause');
-            if (isPlaying) {
-                if (playIcon) playIcon.style.display = 'none';
-                if (pauseIcon) pauseIcon.style.display = 'block';
-                playPauseBtn.classList.add('playing');
-            } else {
-                if (playIcon) playIcon.style.display = 'block';
-                if (pauseIcon) pauseIcon.style.display = 'none';
-                playPauseBtn.classList.remove('playing');
-            }
-        }
-        
-        // Toggle music player expand/collapse
+
         musicToggle.addEventListener('click', (e) => {
             e.stopPropagation();
-            musicPlayer.classList.toggle('expanded');
-            musicToggle.classList.toggle('active');
-        });
-        
-        // Play/Pause functionality
-        playPauseBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
             if (audio.paused) {
-                // Request user interaction for autoplay
-                audio.play().then(() => {
-                    updatePlayPauseIcon(true);
-                    musicToggle.classList.add('active');
-                }).catch(err => {
-                    console.log('Autoplay prevented:', err);
-                    // Show message or handle error
-                });
+                audio.play().then(() => setPlayingUI(true)).catch(() => {});
             } else {
                 audio.pause();
-                updatePlayPauseIcon(false);
+                setPlayingUI(false);
             }
         });
-        
-        // Volume control
-        volumeSlider.addEventListener('input', (e) => {
-            const volume = e.target.value / 100;
-            audio.volume = volume;
-            localStorage.setItem('musicVolume', e.target.value);
-            updateVolumeIcon();
-        });
-        
-        // Mute/Unmute on volume button click
-        volumeBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            if (audio.volume > 0) {
-                audio.dataset.previousVolume = audio.volume;
-                audio.volume = 0;
-                volumeSlider.value = 0;
-                localStorage.setItem('musicVolume', 0);
-            } else {
-                const previousVolume = audio.dataset.previousVolume || 0.5;
-                audio.volume = previousVolume;
-                volumeSlider.value = previousVolume * 100;
-                localStorage.setItem('musicVolume', volumeSlider.value);
-            }
-            updateVolumeIcon();
-        });
-        
-        // Update play/pause button state when audio ends
-        audio.addEventListener('ended', () => {
-            updatePlayPauseIcon(false);
-        });
-        
-        // Update play/pause button state when audio plays/pauses
-        audio.addEventListener('play', () => {
-            updatePlayPauseIcon(true);
-            musicToggle.classList.add('active');
-        });
-        
-        audio.addEventListener('pause', () => {
-            updatePlayPauseIcon(false);
-        });
-        
-        // Close music controls when clicking outside
-        document.addEventListener('click', (e) => {
-            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
-            if (!musicPlayer.contains(e.target) &&
-                !(mobileMenuToggle && mobileMenuToggle.contains(e.target)) &&
-                !(navLinks && navLinks.contains(e.target)) &&
-                musicPlayer.classList.contains('expanded')) {
-                musicPlayer.classList.remove('expanded');
-            }
-        });
+
+        audio.addEventListener('ended', () => setPlayingUI(false));
+        audio.addEventListener('play', () => setPlayingUI(true));
+        audio.addEventListener('pause', () => setPlayingUI(false));
     }
 
     // Initialize all functions

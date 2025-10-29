@@ -63,24 +63,18 @@ nav {
 /* Music Player Styles */
 .music-player {
     position: fixed;
-    right: 1.2rem;
-    bottom: 1.2rem;
-    z-index: 1100;
-    background: linear-gradient(135deg, #fffbe8 55%, #fff5cc 100%);
-    box-shadow: 0 5px 22px 0 rgba(139, 69, 19, 0.17);
-    border-radius: 50px;
-    padding: 0.2rem 1.1rem 0.2rem 0.65rem;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 900;
+    background: #ffffff;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    border-radius: 999px;
+    padding: 0.4rem;
     display: flex;
     align-items: center;
-    transition: all 0.28s cubic-bezier(.68,-0.55,.27,1.55);
-    min-height: 52px;
-    max-width: 480px;
-    border: 2px solid rgba(139,69,19,0.13);
-    pointer-events: auto;
+    border: 1px solid rgba(0,0,0,0.08);
 }
-.music-player .music-controls {
-    margin-left: 0.45rem;
-}
+.music-player .music-controls { display: none; }
 
 .music-player:hover {
     background: linear-gradient(135deg, rgba(139, 69, 19, 0.15) 0%, rgba(255, 215, 0, 0.15) 100%);
@@ -1899,5 +1893,14 @@ button:focus {
 @media (max-width: 768px) {
     .header-left {
         gap: 0.8rem;
+    }
+    .music-player {
+        right: 0.75rem;
+        bottom: 0.75rem;
+        padding: 0.35rem;
+    }
+    .music-toggle {
+        width: 36px;
+        height: 36px;
     }
 }
