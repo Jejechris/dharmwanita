@@ -4,7 +4,7 @@
  */
 
 // Wait for DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function() {
+function initializeAllFeatures() {
     
     // Smooth scrolling for navigation links
     function initSmoothScrolling() {
@@ -151,6 +151,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const navLinks = document.querySelector('.nav-links');
         
         if (mobileMenuToggle && navLinks) {
+            if (mobileMenuToggle.dataset.bound === 'true') return;
+            mobileMenuToggle.dataset.bound = 'true';
             mobileMenuToggle.addEventListener('click', (e) => {
                 e.stopPropagation();
                 mobileMenuToggle.classList.toggle('active');
@@ -281,7 +283,13 @@ document.addEventListener('DOMContentLoaded', function() {
     } catch (error) {
         console.warn('Some features may not be available:', error);
     }
-});
+}
+
+// Initial load
+document.addEventListener('DOMContentLoaded', initializeAllFeatures);
+
+// Turbo Drive navigations
+document.addEventListener('turbo:load', initializeAllFeatures);
 
 // Add CSS for fade-in animation if not already present
 const style = document.createElement('style');
