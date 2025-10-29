@@ -1892,7 +1892,19 @@ button:focus {
 }
 
 @media (max-width: 768px) {
+    .header-left {
+        gap: 0.4rem;
+        flex-wrap: wrap;
+    }
+    .music-player {
+        max-width: 52vw;
+        margin-left: 0;
+    }
+    .container {
+        padding-right: 64px;
+    }
     .music-player.expanded {
         max-width: 90vw;
+        position: static;
     }
 }
