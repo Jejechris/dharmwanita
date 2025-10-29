@@ -21,43 +21,19 @@
                     <i class="fas fa-book-reader"></i> CAKRAJENI
                 </a>
                 
-                <!-- Music Player -->
-                <div class="music-player" id="global-music-player" data-turbo-permanent>
-                    <button class="music-toggle" id="musicToggle" aria-label="Toggle music">
-                        <i class="fas fa-music"></i>
-                    </button>
-                    <div class="music-controls">
-                        <button class="music-btn play-pause" id="playPause" aria-label="Play/Pause">
-                            <i class="fas fa-play"></i>
-                            <i class="fas fa-pause" style="display: none;"></i>
-                        </button>
-                        <div class="volume-control">
-                            <button class="music-btn volume-btn" id="volumeBtn" aria-label="Volume">
-                                <i class="fas fa-volume-up"></i>
-                            </button>
-                            <div class="volume-slider-wrapper">
-                                <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="50" aria-label="Volume slider">
-                            </div>
-                        </div>
-                    </div>
-                    <audio id="backgroundMusic" loop>
-                        <source src="cakrajeni.mp3" type="audio/mpeg">
-                    </audio>
-                </div>
+                <!-- Mobile menu button -->
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Beranda</a></li>
+                    <li><a href="profil.html" class="nav-link">Profil</a></li>
+                    <li><a href="katalog.html" class="nav-link active">Katalog</a></li>
+                </ul>
             </div>
-            
-            <!-- Mobile menu button -->
-            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </button>
-            
-            <ul class="nav-links">
-                <li><a href="index.html" class="nav-link">Beranda</a></li>
-                <li><a href="profil.html" class="nav-link">Profil</a></li>
-                <li><a href="katalog.html" class="nav-link active">Katalog</a></li>
-            </ul>
         </nav>
     </header>
 
@@ -633,6 +609,31 @@
             </div>
         </div>
     </footer>
+
+    <!-- Music Player Floating -->
+    <div class="music-player" id="global-music-player" data-turbo-permanent>
+        <button class="music-toggle" id="musicToggle" aria-label="Toggle music">
+            <i class="fas fa-music"></i>
+        </button>
+        <div class="music-controls">
+            <button class="music-btn play-pause" id="playPause" aria-label="Play/Pause">
+                <i class="fas fa-play"></i>
+                <i class="fas fa-pause" style="display: none;"></i>
+            </button>
+            <div class="volume-control">
+                <button class="music-btn volume-btn" id="volumeBtn" aria-label="Volume">
+                    <i class="fas fa-volume-up"></i>
+                </button>
+                <div class="volume-slider-wrapper">
+                    <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="50" aria-label="Volume slider">
+                </div>
+            </div>
+        </div>
+        <audio id="backgroundMusic" loop>
+            <source src="cakrajeni.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+    <!-- End Music Player -->
 
     <script src="script.js" defer></script>
 </body>
