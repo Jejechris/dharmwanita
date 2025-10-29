@@ -198,13 +198,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Music Player Functionality
     function initMusicPlayer() {
+        const playerRoot = document.getElementById('global-music-player');
         const musicToggle = document.getElementById('musicToggle');
         const audio = document.getElementById('backgroundMusic');
-        if (!musicToggle || !audio) return;
+        if (!playerRoot || !musicToggle || !audio) return;
+
+        if (playerRoot.dataset.initialized === 'true') return;
+        playerRoot.dataset.initialized = 'true';
 
         // Set default volume (no slider)
         const savedVolume = localStorage.getItem('musicVolume');
         audio.volume = savedVolume !== null ? (Number(savedVolume) / 100) : 0.6;
+
+        // Restore currentTime and playing state
+        const savedTime = Number(localStorage.getItem('musicCurrentTime') || '0');
+        const wasPlaying = localStorage.getItem('musicIsPlaying') === 'true';
+        const applyResume = () => {
+            if (!isNaN(savedTime) && savedTime > 0) {
+                try { audio.currentTime = savedTime; } catch (e) {}
+            }
+            if (wasPlaying) {
+                audio.play().then(() => setPlayingUI(true)).catch(() => {});
+            } else {
+                setPlayingUI(false);
+            }
+        };
+        if (audio.readyState >= 1) {
+            applyResume();
+        } else {
+            audio.addEventListener('loadedmetadata', applyResume, { once: true });
+        }
 
         function setPlayingUI(isPlaying) {
             const icon = musicToggle.querySelector('i');
@@ -223,9 +246,27 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        audio.addEventListener('ended', () => setPlayingUI(false));
-        audio.addEventListener('play', () => setPlayingUI(true));
-        audio.addEventListener('pause', () => setPlayingUI(false));
+        // Persist state
+        let lastSave = 0;
+        audio.addEventListener('timeupdate', () => {
+            const now = Date.now();
+            if (now - lastSave > 1000) {
+                lastSave = now;
+                localStorage.setItem('musicCurrentTime', String(Math.floor(audio.currentTime)));
+            }
+        });
+        audio.addEventListener('play', () => {
+            setPlayingUI(true);
+            localStorage.setItem('musicIsPlaying', 'true');
+        });
+        audio.addEventListener('pause', () => {
+            setPlayingUI(false);
+            localStorage.setItem('musicIsPlaying', 'false');
+        });
+        audio.addEventListener('ended', () => {
+            setPlayingUI(false);
+            localStorage.setItem('musicIsPlaying', 'false');
+        });
     }
 
     // Initialize all functions

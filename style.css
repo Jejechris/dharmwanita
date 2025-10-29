@@ -51,6 +51,7 @@ nav {
     display: flex;
     align-items: center;
     gap: 1.5rem;
+    flex: 1;
 }
 
 .logo {
@@ -290,6 +291,7 @@ nav {
     padding: 0.8rem;
     z-index: 1001;
     position: relative;
+    margin-left: auto;
     border-radius: 8px;
     transition: all 0.3s ease;
 }
