@@ -1324,7 +1324,8 @@ footer {
     }
     
     .katalog-item img {
-        height: 250px;
+        height: 180px;
+        object-fit: contain;
     }
 
     .footer-content {
@@ -1438,7 +1439,8 @@ footer {
     }
     
     .katalog-item img {
-        height: 200px;
+        height: 160px;
+        object-fit: contain;
     }
     
     .footer-section h4 {
