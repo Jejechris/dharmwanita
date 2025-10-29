@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Katalog Buku Pojok Baca CAKRAJANI - Koleksi buku fisik dan digital untuk literasi">
-    <meta name="keywords" content="katalog, buku, literasi, pojok baca, dharmawanita, SMAN 16 Surabaya, CAKRAJANI">
-    <title>Katalog - Pojok Baca CAKRAJANI</title>
+    <meta name="description" content="Katalog Buku Pojok Baca CAKRAJENI - Koleksi buku fisik dan digital untuk literasi">
+    <meta name="keywords" content="katalog, buku, literasi, pojok baca, dharmawanita, SMAN 16 Surabaya, CAKRAJENI">
+    <title>Katalog - Pojok Baca CAKRAJENI</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,9 +15,35 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <header>
         <nav class="container">
-            <a href="index.html" class="logo">
-                <i class="fas fa-book-reader"></i> CAKRAJANI
-            </a>
+            <div class="header-left">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-book-reader"></i> CAKRAJENI
+                </a>
+                
+                <!-- Music Player -->
+                <div class="music-player">
+                    <button class="music-toggle" id="musicToggle" aria-label="Toggle music">
+                        <i class="fas fa-music"></i>
+                    </button>
+                    <div class="music-controls">
+                        <button class="music-btn play-pause" id="playPause" aria-label="Play/Pause">
+                            <i class="fas fa-play"></i>
+                            <i class="fas fa-pause" style="display: none;"></i>
+                        </button>
+                        <div class="volume-control">
+                            <button class="music-btn volume-btn" id="volumeBtn" aria-label="Volume">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                            <div class="volume-slider-wrapper">
+                                <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="50" aria-label="Volume slider">
+                            </div>
+                        </div>
+                    </div>
+                    <audio id="backgroundMusic" loop>
+                        <source src="cakrajeni.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+            </div>
             
             <!-- Mobile menu button -->
             <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
@@ -49,7 +75,7 @@
                 <!-- Katalog Buku Fisik -->
                 <div id="katalog-fisik" class="katalog-content active">
                     <h3 class="tab-title">Katalog Buku Fisik</h3>
-                    <p class="tab-description">Koleksi buku fisik yang tersedia di Pojok Baca CAKRAJANI</p>
+                    <p class="tab-description">Koleksi buku fisik yang tersedia di Pojok Baca CAKRAJENI</p>
                     
                     <!-- Filter Kategori -->
                     <div class="katalog-filters">
@@ -73,8 +99,11 @@
                                 <a href="#" class="read-more">Tersedia di Pojok Baca</a>
                             </div>
                         </div>
-                        
-                        <div class="katalog-item" data-category="parenting">
+                        <!--
+                        KATALOG LOADER 
+                        -->
+                        <div>
+  <div class="katalog-item" data-category="parenting">
                             <img src="anekamakanan.png" alt="ANEKA MAKANAN MINUMAN Untuk MENCERDASKAN OTAK BAYI">
                             <div class="book-title-overlay">ANEKA MAKANAN MINUMAN Untuk MENCERDASKAN OTAK BAYI</div>
                             <div style="padding: 1.5rem; background: white;">
@@ -87,7 +116,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="agama">
-                            <img src="placeholder-agama1.jpg" alt="337 Tanya Jawab Fiqih Wanita">
+                            <img src="12.png" alt="337 Tanya Jawab Fiqih Wanita">
                             <div class="book-title-overlay">337 Tanya Jawab Fiqih Wanita</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">337 Tanya Jawab Fiqih Wanita</h3>
@@ -100,7 +129,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="agama">
-                            <img src="placeholder-agama2.jpg" alt="The Power of Jalur Langit">
+                            <img src="13.png" alt="The Power of Jalur Langit">
                             <div class="book-title-overlay">The Power of Jalur Langit</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">The Power of Jalur Langit</h3>
@@ -113,7 +142,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="agama">
-                            <img src="placeholder-agama3.jpg" alt="99 Tanya Jawab Seputar Shalat">
+                            <img src="14.png" alt="99 Tanya Jawab Seputar Shalat">
                             <div class="book-title-overlay">99 Tanya Jawab Seputar Shalat</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">99 Tanya Jawab Seputar Shalat</h3>
@@ -126,7 +155,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="agama">
-                            <img src="placeholder-agama4.jpg" alt="Menjadi Wanita Secerdas Aisyah, Setangguh Khadijah">
+                            <img src="15.png" alt="Menjadi Wanita Secerdas Aisyah, Setangguh Khadijah">
                             <div class="book-title-overlay">Menjadi Wanita Secerdas Aisyah, Setangguh Khadijah</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Menjadi Wanita Secerdas Aisyah, Setangguh Khadijah</h3>
@@ -139,7 +168,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="agama">
-                            <img src="placeholder-agama5.jpg" alt="Ayat-Ayat Motivasi Berdaya Ledak Super Dahsyat!">
+                            <img src="16.png" alt="Ayat-Ayat Motivasi Berdaya Ledak Super Dahsyat!">
                             <div class="book-title-overlay">Ayat-Ayat Motivasi Berdaya Ledak Super Dahsyat!</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Ayat-Ayat Motivasi Berdaya Ledak Super Dahsyat!</h3>
@@ -152,7 +181,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="agama">
-                            <img src="placeholder-agama6.jpg" alt="Kesalahan yang Sering Dilakukan Wanita">
+                            <img src="17.png" alt="Kesalahan yang Sering Dilakukan Wanita">
                             <div class="book-title-overlay">Kesalahan yang Sering Dilakukan Wanita</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Kesalahan yang Sering Dilakukan Wanita</h3>
@@ -165,7 +194,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="kesehatan">
-                            <img src="placeholder-kesehatan1.jpg" alt="Seberapa Perlu Diet: seberapa berat proses yang harus dijalani">
+                            <img src="35.png" alt="Seberapa Perlu Diet: seberapa berat proses yang harus dijalani">
                             <div class="book-title-overlay">Seberapa Perlu Diet: seberapa berat proses yang harus dijalani</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Seberapa Perlu Diet: seberapa berat proses yang harus dijalani</h3>
@@ -180,7 +209,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="kesehatan">
-                            <img src="placeholder-kesehatan2.jpg" alt="Secantik yang Engkau Impikan: 365 tips menjadi remaja cantik lahir batin">
+                            <img src="34.png" alt="Secantik yang Engkau Impikan: 365 tips menjadi remaja cantik lahir batin">
                             <div class="book-title-overlay">Secantik yang Engkau Impikan: 365 tips menjadi remaja cantik lahir batin</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Secantik yang Engkau Impikan: 365 tips menjadi remaja cantik lahir batin</h3>
@@ -195,7 +224,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="pengetahuan">
-                            <img src="placeholder-pengetahuan1.jpg" alt="Dunia Tanpa Sekolah">
+                            <img src="22.png" alt="Dunia Tanpa Sekolah">
                             <div class="book-title-overlay">Dunia Tanpa Sekolah</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Dunia Tanpa Sekolah</h3>
@@ -211,7 +240,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="pengetahuan">
-                            <img src="placeholder-pengetahuan2.jpg" alt="Menemani Bukan Memarahi: mendampingi anak menjadi dirinya sendiri">
+                            <img src="37.png" alt="Menemani Bukan Memarahi: mendampingi anak menjadi dirinya sendiri">
                             <div class="book-title-overlay">Menemani Bukan Memarahi: mendampingi anak menjadi dirinya sendiri</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Menemani Bukan Memarahi: mendampingi anak menjadi dirinya sendiri</h3>
@@ -227,7 +256,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="pengetahuan">
-                            <img src="placeholder-pengetahuan3.jpg" alt="Seni Menjadi Orang Tua Hebat: 75 cara sederhana untuk membesarkan anak-anak yang bertumbuh">
+                            <img src="21.png" alt="Seni Menjadi Orang Tua Hebat: 75 cara sederhana untuk membesarkan anak-anak yang bertumbuh">
                             <div class="book-title-overlay">Seni Menjadi Orang Tua Hebat: 75 cara sederhana untuk membesarkan anak-anak yang bertumbuh</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Seni Menjadi Orang Tua Hebat: 75 cara sederhana untuk membesarkan anak-anak yang bertumbuh</h3>
@@ -242,7 +271,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="pengetahuan">
-                            <img src="placeholder-pengetahuan4.jpg" alt="Hidup Apa Adanya">
+                            <img src="20.png" alt="Hidup Apa Adanya">
                             <div class="book-title-overlay">Hidup Apa Adanya</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Hidup Apa Adanya</h3>
@@ -258,7 +287,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="pengetahuan">
-                            <img src="placeholder-pengetahuan5.jpg" alt="Soft Skills Untuk Pendidik">
+                            <img src="19.png" alt="Soft Skills Untuk Pendidik">
                             <div class="book-title-overlay">Soft Skills Untuk Pendidik</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Soft Skills Untuk Pendidik</h3>
@@ -274,7 +303,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="novel">
-                            <img src="placeholder-novel1.jpg" alt="Mempelai Sunyi">
+                            <img src="18.png" alt="Mempelai Sunyi">
                             <div class="book-title-overlay">Mempelai Sunyi</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Mempelai Sunyi</h3>
@@ -289,23 +318,10 @@
                             </div>
                         </div>
                         
-                        <div class="katalog-item" data-category="novel">
-                            <img src="placeholder-novel1.jpg" alt="Mempelai Sunyi">
-                            <div class="book-title-overlay">Mempelai Sunyi</div>
-                            <div style="padding: 1.5rem; background: white;">
-                                <h3 style="color: #8b4513; margin-bottom: 1rem;">Mempelai Sunyi</h3>
-                                <p style="color: #666; margin-bottom: 0.5rem;"><strong>Pengarang:</strong> Aep Saefulloh</p>
-                                <p style="color: #666; margin-bottom: 0.5rem;"><strong>Penerbit:</strong> Beranda</p>
-                                <p style="color: #666; margin-bottom: 0.5rem;"><strong>Tahun:</strong> 2005</p>
-                                <p style="color: #666; margin-bottom: 0.5rem;"><strong>Kategori:</strong> Novel</p>
-                                <p style="color: #666; margin-bottom: 0.5rem;"><strong>No. Klasifikasi:</strong> 813 SAE m</p>
-                                <p style="color: #555; margin-bottom: 1.5rem;">Novel yang mengisahkan tentang pernikahan dan kehidupan yang penuh dengan keheningan dan makna mendalam.</p>
-                                <a href="#" style="display: block; background: #8b4513; color: white; padding: 15px 30px; border-radius: 25px; text-decoration: none; font-weight: 600; text-align: center; margin-top: 1rem;">📄 Lihat Buku</a>
-                            </div>
-                        </div>
+                        
                         
                         <div class="katalog-item" data-category="novel">
-                            <img src="placeholder-novel2.jpg" alt="Rapuh Boleh, Menyerah Jangan">
+                            <img src="31.png" alt="Rapuh Boleh, Menyerah Jangan">
                             <div class="book-title-overlay">Rapuh Boleh, Menyerah Jangan</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Rapuh Boleh, Menyerah Jangan</h3>
@@ -320,7 +336,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="novel">
-                            <img src="placeholder-novel3.jpg" alt="Rara Beruk">
+                            <img src="30.png" alt="Rara Beruk">
                             <div class="book-title-overlay">Rara Beruk</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Rara Beruk</h3>
@@ -335,7 +351,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="novel">
-                            <img src="placeholder-novel4.jpg" alt="Robohnya Surau Kami : kumpulan cerpen">
+                            <img src="29.png" alt="Robohnya Surau Kami : kumpulan cerpen">
                             <div class="book-title-overlay">Robohnya Surau Kami : kumpulan cerpen</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Robohnya Surau Kami : kumpulan cerpen</h3>
@@ -350,7 +366,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="novel">
-                            <img src="placeholder-novel5.jpg" alt="Malam Terakhir: kumpulan cerpen">
+                            <img src="28.png" alt="Malam Terakhir: kumpulan cerpen">
                             <div class="book-title-overlay">Malam Terakhir: kumpulan cerpen</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Malam Terakhir: kumpulan cerpen</h3>
@@ -365,7 +381,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="novel">
-                            <img src="placeholder-novel6.jpg" alt="Ayat-Ayat Cinta">
+                            <img src="27.png" alt="Ayat-Ayat Cinta">
                             <div class="book-title-overlay">Ayat-Ayat Cinta</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Ayat-Ayat Cinta</h3>
@@ -380,7 +396,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="novel">
-                            <img src="placeholder-novel7.jpg" alt="Tiada Tempat di Surga Untuknya">
+                            <img src="26.png" alt="Tiada Tempat di Surga Untuknya">
                             <div class="book-title-overlay">Tiada Tempat di Surga Untuknya</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Tiada Tempat di Surga Untuknya</h3>
@@ -395,7 +411,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="novel">
-                            <img src="placeholder-novel8.jpg" alt="Layang-Layang Sore">
+                            <img src="25.png" alt="Layang-Layang Sore">
                             <div class="book-title-overlay">Layang-Layang Sore</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Layang-Layang Sore</h3>
@@ -409,7 +425,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="novel">
-                            <img src="placeholder-novel9.jpg" alt="Saksi Bisu Putih Abu-Abu">
+                            <img src="24.png" alt="Saksi Bisu Putih Abu-Abu">
                             <div class="book-title-overlay">Saksi Bisu Putih Abu-Abu</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Saksi Bisu Putih Abu-Abu</h3>
@@ -423,7 +439,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="novel">
-                            <img src="placeholder-novel10.jpg" alt="Maafkan Aku">
+                            <img src="23.png" alt="Maafkan Aku">
                             <div class="book-title-overlay">Maafkan Aku</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Maafkan Aku</h3>
@@ -437,7 +453,7 @@
                         </div>
                         
                         <div class="katalog-item" data-category="novel">
-                            <img src="placeholder-novel11.jpg" alt="Belajar Dari Mangga">
+                            <img src="36.png" alt="Belajar Dari Mangga">
                             <div class="book-title-overlay">Belajar Dari Mangga</div>
                             <div style="padding: 1.5rem; background: white;">
                                 <h3 style="color: #8b4513; margin-bottom: 1rem;">Belajar Dari Mangga</h3>
@@ -451,6 +467,8 @@
                         </div>
                     </div>
                 </div>
+                        </div>
+                      
 
                 <!-- Katalog Buku Digital -->
                 <div id="katalog-digital" class="katalog-content">
@@ -465,7 +483,7 @@
                                 <h3>Resep Masakan Nusantara</h3>
                                 <p class="category">Kategori: Resep Masakan</p>
                                 <p class="description">Panduan resep masakan yang sehat untuk keluarga dari UNICEF.</p>
-                                <a href="https://www.unicef.org/indonesia/id/media/14876/file/Kumpulan%20Resep%20Makanan%20Keluarga%20Sehat%20Seri%202.pdf" target="_blank" class="read-more">Baca Online</a>
+                                <a href="https://www.unicef.org/indonesia/id/media/14876/file/Kumpulan%20Resep%20Makanan%20Keluarga%20Sehat%20Seri%202.pdf" target="_blank" rel="noopener noreferrer" class="read-more">Baca Online</a>
                             </div>
                         </div>
                         
@@ -476,7 +494,7 @@
                                 <h3>Panduan Mendidik Anak</h3>
                                 <p class="category">Kategori: Parenting</p>
                                 <p class="description">E-book panduan mendidik anak dalam perspektif Islam dari Radio Muslim Jogja.</p>
-                                <a href="https://cdn.radiomuslim.com/wp-content/uploads/2019/08/EBOOK-PANDUAN-MENDIDIK-ANAK-AT.pdf" target="_blank" class="read-more">Baca Online</a>
+                                <a href="https://cdn.radiomuslim.com/wp-content/uploads/2019/08/EBOOK-PANDUAN-MENDIDIK-ANAK-AT.pdf" target="_blank" rel="noopener noreferrer" class="read-more">Baca Online</a>
                             </div>
                         </div>
                         
@@ -487,7 +505,7 @@
                                 <h3>Tips Kesehatan Keluarga</h3>
                                 <p class="category">Kategori: Kesehatan</p>
                                 <p class="description">Panduan umum kesehatan keluarga dari Kementerian Kesehatan RI (via Dinkes Jatim).</p>
-                                <a href="https://dinkes.jatimprov.go.id/userfile/dokumen/Buku_Pedoman_PIS_PK.pdf" target="_blank" class="read-more">Baca Online</a>
+                                <a href="https://dinkes.jatimprov.go.id/userfile/dokumen/Buku_Pedoman_PIS_PK.pdf" target="_blank" rel="noopener noreferrer" class="read-more">Baca Online</a>
                             </div>
                         </div>
                         
@@ -498,7 +516,7 @@
                                 <h3>Kisah Inspiratif Para Ibu</h3>
                                 <p class="category">Kategori: Inspirasi</p>
                                 <p class="description">Kumpulan cerita inspiratif (termasuk tentang ibu dan keluarga) dari Digilib UINKHAS.</p>
-                                <a href="https://digilib.uinkhas.ac.id/466/1/BUKU%20The%20Power%20Of%20Story.pdf" target="_blank" class="read-more">Baca Online</a>
+                                <a href="https://digilib.uinkhas.ac.id/466/1/BUKU%20The%20Power%20Of%20Story.pdf" target="_blank" rel="noopener noreferrer" class="read-more">Baca Online</a>
                             </div>
                         </div>
                         
@@ -509,7 +527,7 @@
                                 <h3>Keterampilan Rumah Tangga</h3>
                                 <p class="category">Kategori: Rumah Tangga</p>
                                 <p class="description">Panduan praktis tentang perilaku hidup bersih dan sehat dalam rumah tangga dari Dinas Kesehatan Sleman.</p>
-                                <a href="https://dinkes.slemankab.go.id/wp-content/uploads/2020/03/booklet-phbs-rumah-tangga.pdf" target="_blank" class="read-more">Baca Online</a>
+                                <a href="https://dinkes.slemankab.go.id/wp-content/uploads/2020/03/booklet-phbs-rumah-tangga.pdf" target="_blank" rel="noopener noreferrer" class="read-more">Baca Online</a>
                             </div>
                         </div>
                         
@@ -520,7 +538,7 @@
                                 <h3>Mengelola Keuangan Rumah Tangga</h3>
                                 <p class="category">Kategori: Keuangan</p>
                                 <p class="description">Panduan pengelolaan keuangan keluarga yang disusun oleh Otoritas Jasa Keuangan (OJK) (via Scribd).</p>
-                                <a href="https://id.scribd.com/document/872864819/Buku-Saku-Perempuan-Cerdas-Keuangan" target="_blank" class="read-more">Baca Online</a>
+                                <a href="https://id.scribd.com/document/872864819/Buku-Saku-Perempuan-Cerdas-Keuangan" target="_blank" rel="noopener noreferrer" class="read-more">Baca Online</a>
                             </div>
                         </div>
                         
@@ -531,7 +549,7 @@
                                 <h3>Tere Liye - Tentang Kamu</h3>
                                 <p class="category">Kategori: Novel</p>
                                 <p class="description">Novel romantis karya Tere Liye yang mengisahkan tentang cinta, kehidupan, dan perjalanan emosional yang mengharukan.</p>
-                                <a href="https://drive.google.com/file/d/1sRHo8WvBw9l6RWwCTgV63qgit-VJK_NW/view?usp=drivesdk" target="_blank" class="read-more">Baca Online</a>
+                                <a href="https://drive.google.com/file/d/1sRHo8WvBw9l6RWwCTgV63qgit-VJK_NW/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="read-more">Baca Online</a>
                             </div>
                         </div>
                         
@@ -542,7 +560,7 @@
                                 <h3>Tere Liye - Ayahku (Bukan) Pembohong</h3>
                                 <p class="category">Kategori: Novel</p>
                                 <p class="description">Kisah mengharukan tentang hubungan ayah dan anak, dengan pesan moral yang dalam tentang kejujuran dan kasih sayang keluarga.</p>
-                                <a href="https://drive.google.com/file/d/1pAVbE2eeNak-je1Kd2AhWFNMpXz2TT3I/view?usp=drivesdk" target="_blank" class="read-more">Baca Online</a>
+                                <a href="https://drive.google.com/file/d/1pAVbE2eeNak-je1Kd2AhWFNMpXz2TT3I/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="read-more">Baca Online</a>
                             </div>
                         </div>
                         
@@ -553,7 +571,7 @@
                                 <h3>Tere Liye - Dikatakan atau Tidak Dikatakan, Itu Tetap Cinta</h3>
                                 <p class="category">Kategori: Novel</p>
                                 <p class="description">Novel yang mengangkat tema cinta yang tak terucap, dengan narasi yang indah dan emosional tentang perasaan yang mendalam.</p>
-                                <a href="https://drive.google.com/file/d/1u7FoBhmVpowYojPCwIcMdaCaVmTeREuK/view?usp=drivesdk" target="_blank" class="read-more">Baca Online</a>
+                                <a href="https://drive.google.com/file/d/1u7FoBhmVpowYojPCwIcMdaCaVmTeREuK/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="read-more">Baca Online</a>
                             </div>
                         </div>
                         
@@ -564,7 +582,7 @@
                                 <h3>Esti Kinasih - Untuk Dia yang Terlambat Gue Temukan</h3>
                                 <p class="category">Kategori: Novel</p>
                                 <p class="description">Novel romantis karya Esti Kinasih yang bercerita tentang cinta yang datang di waktu yang tepat, dengan gaya bahasa yang segar dan relatable.</p>
-                                <a href="https://drive.google.com/file/d/1I4ICRV1X1VtqJgXDDVH9L57cuHl_sKMY/view?usp=drivesdk" target="_blank" class="read-more">Baca Online</a>
+                                <a href="https://drive.google.com/file/d/1I4ICRV1X1VtqJgXDDVH9L57cuHl_sKMY/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="read-more">Baca Online</a>
                             </div>
                         </div>
                     </div>
@@ -577,14 +595,14 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Pojok Baca CAKRAJANI</h4>
+                    <h4>Pojok Baca CAKRAJENI</h4>
                     <p>Program literasi Dharma Wanita Persatuan SMAN 16 Surabaya untuk membangun budaya membaca yang menyenangkan dan berkelanjutan.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Kontak</h4>
                     <div class="contact-info">
                         <p><i class="fas fa-map-marker-alt"></i> SMAN 16 Surabaya</p>
-                        <p><i class="fas fa-envelope"></i> info@cakrajani.sch.id</p>
+                        <p><i class="fas fa-envelope"></i> info@cakrajeni.sch.id</p>
                         <p><i class="fas fa-phone"></i> (031) 123-4567</p>
                     </div>
                 </div>
@@ -608,13 +626,13 @@
             </div>
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
-                    <p>&copy; 2025 Pojok Baca CAKRAJANI. All rights reserved.</p>
+                    <p>&copy; 2025 Pojok Baca CAKRAJENI. All rights reserved.</p>
                     <p>Dharma Wanita Persatuan SMAN 16 Surabaya</p>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

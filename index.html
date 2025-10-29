@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Pojok Baca CAKRAJANI - Program literasi Dharma Wanita Persatuan SMAN 16 Surabaya untuk membangun budaya membaca yang menyenangkan">
-    <meta name="keywords" content="pojok baca, literasi, membaca, dharmawanita, SMAN 16 Surabaya, CAKRAJANI">
-    <title>Beranda - Pojok Baca CAKRAJANI</title>
+    <meta name="description" content="Pojok Baca CAKRAJENI - Program literasi Dharma Wanita Persatuan SMAN 16 Surabaya untuk membangun budaya membaca yang menyenangkan">
+    <meta name="keywords" content="pojok baca, literasi, membaca, dharmawanita, SMAN 16 Surabaya, CAKRAJENI">
+    <title>Beranda - Pojok Baca CAKRAJENI</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,9 +15,35 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <header>
         <nav class="container">
-            <a href="index.html" class="logo">
-                <i class="fas fa-book-reader"></i> CAKRAJANI
-            </a>
+            <div class="header-left">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-book-reader"></i> CAKRAJENI
+                </a>
+                
+                <!-- Music Player -->
+                <div class="music-player">
+                    <button class="music-toggle" id="musicToggle" aria-label="Toggle music">
+                        <i class="fas fa-music"></i>
+                    </button>
+                    <div class="music-controls">
+                        <button class="music-btn play-pause" id="playPause" aria-label="Play/Pause">
+                            <i class="fas fa-play"></i>
+                            <i class="fas fa-pause" style="display: none;"></i>
+                        </button>
+                        <div class="volume-control">
+                            <button class="music-btn volume-btn" id="volumeBtn" aria-label="Volume">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                            <div class="volume-slider-wrapper">
+                                <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="50" aria-label="Volume slider">
+                            </div>
+                        </div>
+                    </div>
+                    <audio id="backgroundMusic" loop>
+                        <source src="cakrajeni.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+            </div>
             
             <!-- Mobile menu button -->
             <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
@@ -46,13 +72,13 @@
                 <!-- Logos -->
                 <div class="logos-container">
                     <div class="logo-item">
-                        <img src="logo-jawa-timur.png" alt="Logo Jawa Timur" class="logo-image">
+                        <img loading="lazy" src="logo-jawa-timur.png" alt="Logo Jawa Timur" class="logo-image">
                     </div>
                     <div class="logo-item">
-                        <img src="logo-dharma-wanita.png" alt="Logo Dharma Wanita" class="logo-image">
+                        <img loading="lazy" src="logo-dharma-wanita.png" alt="Logo Dharma Wanita" class="logo-image">
                     </div>
                     <div class="logo-item">
-                        <img src="logo-sman16.png" alt="Logo SMAN 16 Surabaya" class="logo-image">
+                        <img loading="lazy" src="logo-sman16.png" alt="Logo SMAN 16 Surabaya" class="logo-image">
                     </div>
                 </div>
 
@@ -79,7 +105,7 @@
                         <a href="profil.html" class="quick-link-card">
                             <i class="fas fa-users"></i>
                             <h4>Profil Organisasi</h4>
-                            <p>Pelajari lebih lanjut tentang Pojok Baca CAKRAJANI</p>
+                            <p>Pelajari lebih lanjut tentang Pojok Baca CAKRAJENI</p>
                         </a>
                         <a href="katalog.html" class="quick-link-card">
                             <i class="fas fa-book"></i>
@@ -94,11 +120,11 @@
         <!-- Treasures Section -->
         <section class="section treasures-section">
             <div class="container">
-                <h2>THE TREASURES WE DISCOVERED FROM CAKRAJANI</h2>
+                <h2>THE TREASURES WE DISCOVERED FROM CAKRAJENI</h2>
                 <div class="treasures-content">
-                    <p>Dengan adanya program Pojok Baca CAKRAJANI di lingkup SMAN 16 Surabaya, kami berkesempatan membaca buku yang berjudul <strong>Maryam: Bunda Suci Sang Nabi</strong> yang mana membuka mata kami tentang betapa agungnya teladan Maryam.</p>
+                    <p>Dengan adanya program Pojok Baca CAKRAJENI di lingkup SMAN 16 Surabaya, kami berkesempatan membaca buku yang berjudul <strong>Maryam: Bunda Suci Sang Nabi</strong> yang mana membuka mata kami tentang betapa agungnya teladan Maryam.</p>
                     <p>Sebagai anggota Dharma Wanita, kami merasa terinspirasi untuk terus berperan aktif, baik dalam keluarga maupun di masyarakat, dengan semangat cerdas, trengginas, dan kreatif.</p>
-                    <p>Kegiatan membaca buku Maryam di pojok baca CAKRAJANI menyadarkan kami untuk menjadi perempuan yang tangguh, penuh kasih, sekaligus mampu menebarkan semangat, harapan, dan keteladanan bagi orang-orang di sekitar kami.</p>
+                    <p>Kegiatan membaca buku Maryam di pojok baca CAKRAJENI menyadarkan kami untuk menjadi perempuan yang tangguh, penuh kasih, sekaligus mampu menebarkan semangat, harapan, dan keteladanan bagi orang-orang di sekitar kami.</p>
                 </div>
             </div>
         </section>
@@ -108,14 +134,14 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Pojok Baca CAKRAJANI</h4>
+                    <h4>Pojok Baca CAKRAJENI</h4>
                     <p>Program literasi Dharma Wanita Persatuan SMAN 16 Surabaya untuk membangun budaya membaca yang menyenangkan dan berkelanjutan.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Kontak</h4>
                     <div class="contact-info">
                         <p><i class="fas fa-map-marker-alt"></i> SMAN 16 Surabaya</p>
-                        <p><i class="fas fa-envelope"></i> info@cakrajani.sch.id</p>
+                        <p><i class="fas fa-envelope"></i> info@CAKRAJENI.sch.id</p>
                         <p><i class="fas fa-phone"></i> (031) 123-4567</p>
                     </div>
                 </div>
@@ -139,13 +165,13 @@
             </div>
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
-                    <p>&copy; 2025 Pojok Baca CAKRAJANI. All rights reserved.</p>
+                    <p>&copy; 2025 Pojok Baca CAKRAJENI. All rights reserved.</p>
                     <p>Dharma Wanita Persatuan SMAN 16 Surabaya</p>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

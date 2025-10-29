@@ -1,5 +1,5 @@
 /**
- * Pojok Baca CAKRAJANI - Interactive Features
+ * Pojok Baca CAKRAJENI - Interactive Features
  * Optimized for performance and mobile responsiveness
  */
 
@@ -196,6 +196,129 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // Music Player Functionality
+    function initMusicPlayer() {
+        const musicToggle = document.getElementById('musicToggle');
+        const musicPlayer = document.querySelector('.music-player');
+        const playPauseBtn = document.getElementById('playPause');
+        const volumeBtn = document.getElementById('volumeBtn');
+        const volumeSlider = document.getElementById('volumeSlider');
+        const audio = document.getElementById('backgroundMusic');
+        
+        if (!musicToggle || !musicPlayer || !playPauseBtn || !audio) return;
+        
+        // Load saved volume preference
+        const savedVolume = localStorage.getItem('musicVolume');
+        if (savedVolume !== null) {
+            volumeSlider.value = savedVolume;
+            audio.volume = savedVolume / 100;
+        } else {
+            audio.volume = 0.5;
+        }
+        
+        // Update volume icon based on volume level
+        function updateVolumeIcon() {
+            const volume = audio.volume;
+            const icon = volumeBtn.querySelector('i');
+            if (volume === 0) {
+                icon.className = 'fas fa-volume-mute';
+            } else if (volume < 0.5) {
+                icon.className = 'fas fa-volume-down';
+            } else {
+                icon.className = 'fas fa-volume-up';
+            }
+        }
+        
+        updateVolumeIcon();
+        
+        // Helper function to update play/pause icon
+        function updatePlayPauseIcon(isPlaying) {
+            const playIcon = playPauseBtn.querySelector('.fa-play');
+            const pauseIcon = playPauseBtn.querySelector('.fa-pause');
+            if (isPlaying) {
+                if (playIcon) playIcon.style.display = 'none';
+                if (pauseIcon) pauseIcon.style.display = 'block';
+                playPauseBtn.classList.add('playing');
+            } else {
+                if (playIcon) playIcon.style.display = 'block';
+                if (pauseIcon) pauseIcon.style.display = 'none';
+                playPauseBtn.classList.remove('playing');
+            }
+        }
+        
+        // Toggle music player expand/collapse
+        musicToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            musicPlayer.classList.toggle('expanded');
+            musicToggle.classList.toggle('active');
+        });
+        
+        // Play/Pause functionality
+        playPauseBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (audio.paused) {
+                // Request user interaction for autoplay
+                audio.play().then(() => {
+                    updatePlayPauseIcon(true);
+                    musicToggle.classList.add('active');
+                }).catch(err => {
+                    console.log('Autoplay prevented:', err);
+                    // Show message or handle error
+                });
+            } else {
+                audio.pause();
+                updatePlayPauseIcon(false);
+            }
+        });
+        
+        // Volume control
+        volumeSlider.addEventListener('input', (e) => {
+            const volume = e.target.value / 100;
+            audio.volume = volume;
+            localStorage.setItem('musicVolume', e.target.value);
+            updateVolumeIcon();
+        });
+        
+        // Mute/Unmute on volume button click
+        volumeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (audio.volume > 0) {
+                audio.dataset.previousVolume = audio.volume;
+                audio.volume = 0;
+                volumeSlider.value = 0;
+                localStorage.setItem('musicVolume', 0);
+            } else {
+                const previousVolume = audio.dataset.previousVolume || 0.5;
+                audio.volume = previousVolume;
+                volumeSlider.value = previousVolume * 100;
+                localStorage.setItem('musicVolume', volumeSlider.value);
+            }
+            updateVolumeIcon();
+        });
+        
+        // Update play/pause button state when audio ends
+        audio.addEventListener('ended', () => {
+            updatePlayPauseIcon(false);
+        });
+        
+        // Update play/pause button state when audio plays/pauses
+        audio.addEventListener('play', () => {
+            updatePlayPauseIcon(true);
+            musicToggle.classList.add('active');
+        });
+        
+        audio.addEventListener('pause', () => {
+            updatePlayPauseIcon(false);
+        });
+        
+        // Close music controls when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!musicPlayer.contains(e.target) && musicPlayer.classList.contains('expanded')) {
+                musicPlayer.classList.remove('expanded');
+            }
+        });
+    }
+
     // Initialize all functions
     try {
         initSmoothScrolling();
@@ -204,6 +327,7 @@ document.addEventListener('DOMContentLoaded', function() {
         initScrollAnimations();
         initHeaderScroll();
         initMobileMenu();
+        initMusicPlayer();
     } catch (error) {
         console.warn('Some features may not be available:', error);
     }

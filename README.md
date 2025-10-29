@@ -1,10 +1,10 @@
-# Pojok Baca CAKRAJANI
+# Pojok Baca CAKRAJENI
 
-Website resmi untuk program Pojok Baca CAKRAJANI dari Dharma Wanita Persatuan SMAN 16 Surabaya.
+Website resmi untuk program Pojok Baca CAKRAJENI dari Dharma Wanita Persatuan SMAN 16 Surabaya.
 
 ## 🎯 Tentang
 
-Pojok Baca CAKRAJANI adalah program inovatif yang berfokus pada pengembangan budaya membaca di lingkungan sekolah, dengan tujuan menciptakan generasi cerdas, tangguh, dan berkarakter.
+Pojok Baca CAKRAJENI adalah program inovatif yang berfokus pada pengembangan budaya membaca di lingkungan sekolah, dengan tujuan menciptakan generasi cerdas, tangguh, dan berkarakter.
 
 ## 📱 Fitur Website
 
@@ -56,7 +56,7 @@ dharmawanita/
 ├── logo-jawa-timur.png # Logo Jawa Timur
 ├── logo-dharma-wanita.png # Logo Dharma Wanita
 ├── logo-sman16.png     # Logo SMAN 16 Surabaya
-└── logo-pojok-baca.png # Logo Pojok Baca CAKRAJANI
+└── logo-pojok-baca.png # Logo Pojok Baca CAKRAJENI
 ```
 
 ## 🚀 Performance Optimizations
@@ -78,7 +78,7 @@ dharmawanita/
 ## 📞 Kontak
 
 **Dharma Wanita Persatuan SMAN 16 Surabaya**
-- Program: Pojok Baca CAKRAJANI
+- Program: Pojok Baca CAKRAJENI
 - Lokasi: SMAN 16 Surabaya
 - Tahun: 2025
 
