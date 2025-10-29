@@ -313,7 +313,12 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Close music controls when clicking outside
         document.addEventListener('click', (e) => {
-            if (!musicPlayer.contains(e.target) && musicPlayer.classList.contains('expanded')) {
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            if (!musicPlayer.contains(e.target) &&
+                !(mobileMenuToggle && mobileMenuToggle.contains(e.target)) &&
+                !(navLinks && navLinks.contains(e.target)) &&
+                musicPlayer.classList.contains('expanded')) {
                 musicPlayer.classList.remove('expanded');
             }
         });

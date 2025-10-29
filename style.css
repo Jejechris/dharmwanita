@@ -72,6 +72,9 @@ nav {
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
     position: relative;
+    z-index: 800;
+    pointer-events: auto;
+    max-width: 330px;
 }
 
 .music-player:hover {
@@ -142,6 +145,8 @@ nav {
     max-width: 0;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: auto;
+    max-width: 260px;
 }
 
 .music-player.expanded .music-controls {
@@ -1884,4 +1889,10 @@ button:focus {
     margin-top: 1rem !important;
     position: relative !important;
     z-index: 999 !important;
+}
+
+@media (max-width: 768px) {
+    .music-player.expanded {
+        max-width: 90vw;
+    }
 }
