@@ -978,6 +978,38 @@ main {
     display: block;
 }
 
+/* New Video Section Styles */
+.video-section h2 {
+    color: #8b4513;
+}
+
+.video-card {
+    border: 2px solid rgba(139, 69, 19, 0.2);
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 10px 28px rgba(139, 69, 19, 0.10);
+    overflow: hidden;
+}
+
+.video-frame {
+    position: relative;
+    width: 100%;
+    background: #000;
+}
+
+.video-frame iframe {
+    width: 100%;
+    height: 420px;
+    border: 0;
+    display: block;
+}
+
+.video-actions {
+    padding: 1rem 1.25rem 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
 /* Footer */
 footer {
     background: linear-gradient(135deg, #2c1810 0%, #8b4513 100%);
@@ -1907,4 +1939,30 @@ button:focus {
         width: 36px;
         height: 36px;
     }
+}
+
+/* --- Responsiveness untuk Video Embed (Aspect Ratio Box) --- */
+
+/* Menimpa styling .video-frame yang ada */
+.video-frame {
+    /* Hapus/timpa properti height: 420px; yang tidak responsif */
+    position: relative;
+    width: 100%;
+    /* 56.25% = (9 / 16) * 100%. Ini menjaga rasio 16:9 */
+    padding-bottom: 56.25%; 
+    height: 0;
+    overflow: hidden;
+    background: #000;
+    border-radius: 0; /* Biarkan border-radius dikendalikan oleh .video-card */
+}
+
+.video-frame iframe {
+    /* Membuat iframe menutupi seluruh .video-frame */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
 }
